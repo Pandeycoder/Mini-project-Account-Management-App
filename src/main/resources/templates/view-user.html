@@ -1,0 +1,84 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<title>Account Management</title>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+	</head>
+	
+	<body>
+		
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Add User</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/users">View User</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+		
+		<div class="container mt-5">
+			<h3>View users</h3>
+		    <table class="table table-bordered table-striped">
+				<thead class="table-primary">
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>DOB</th>
+						<th>Email</th>
+						<th>Gender</th>
+						<th>Phno</th>
+						<th>Edite</th>
+						<th>Delete</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user:${users}">
+						<td th:text="${user.userId}"></td>
+						<td th:text="${user.userName}"></td>
+						<td th:text="${user.userDob}"></td>
+						<td th:text="${user.userEmail}"></td>
+						<td th:text="${user.userPhno}"></td>
+						<td th:text="${user.usergender}"></td>
+						
+						<td> <a href="" class="btn btn-primary">Edit</a></td>
+						<td> <a href="" class="btn btn-danger">Delete</a></td>
+						
+						
+						<span th:switch="${user.activeSw}">
+							<i th:case="Y" class="fas fa-check red-text">
+								<td> <a href="" class="btn btn-danger">De-Activate</a></td>
+							</i>
+							<i th:case="N" class="fas fa-times orange-text">
+								
+								<td> <a href="" class="btn btn-success">Activate</a></td>
+							</i>	
+							
+						</span>
+						
+					</tr>
+					
+					
+				</tbody>
+			</table>
+		</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+
+	</body>
+</html>
+

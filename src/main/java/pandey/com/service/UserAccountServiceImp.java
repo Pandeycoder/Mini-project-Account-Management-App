@@ -25,7 +25,7 @@ public class UserAccountServiceImp implements UserAccountService {
 		//UPSERT (INSERT OR UPDATE)
 		userAccountRepo.save(userAcc);
 		
-		if(userAcc==null)
+		if(userId==null)
 		{
 			return "User Record Saved";
 			
@@ -64,7 +64,7 @@ public class UserAccountServiceImp implements UserAccountService {
 		boolean existId=userAccountRepo.existsById(userId);
 		
 		if(existId)
-		{
+		{ 
 			userAccountRepo.deleteById(userId);
 			return true;
 		}

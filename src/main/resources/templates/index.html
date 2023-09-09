@@ -1,0 +1,82 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<title>Account Management</title>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	</head>
+	
+	<body>
+		
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Add User</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/users">View User</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+		
+		<div class="container mt-5">
+			<h1>User Account Form</h1>
+			<p th:text="${msg}" class="text-success"></p>
+			<form th:action="@{/save-user}" th:object="${user}" method="post">
+				
+				<table>
+					<tr>
+						<td>FullName</td>
+						<td><input type="text" th:field="*{userName}" /> </td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="email" th:field="*{userEmail}" /> </td>
+					</tr>
+					<tr>
+						<td>Phno</td>
+						<td><input type="number" th:field="*{userPhno}" /> </td>
+					</tr>
+					<tr>
+						<td>SSN</td>
+						<td><input type="number" th:field="*{userSsn}" /> </td>
+					</tr>
+					<tr>
+						<td>DOB</td>
+						<td><input type="date" th:field="*{userDob}" /> </td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+						<td><input type="radio" th:field="*{usergender}" value="Male" name="gender" />Male
+					    <input type="radio" value="Female" name="gender" th:field="*{usergender}"/>Female </td></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="submit" value="Submit" class="btn btn-primary"/>
+						</td>
+						<td>
+							<input type="reset" value="ReSet" class="btn btn-secondary"/>
+						</td>
+					</tr>
+				</table>
+				
+				
+			</form>
+			
+		</div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+	</body>
+</html>
+
